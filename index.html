@@ -1,72 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobina & Matin</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobina & Matin</title>
 
-<style>
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-}
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-image: url('photo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+    }
 
-body {
-    background: url('photo.jpg') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-}
-
-.overlay {
-    background: rgba(0, 0, 0, 0.45);
-    padding: 40px;
-    border-radius: 20px;
-}
-
-h1 {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-}
-
-p {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-}
-
-button {
-    padding: 12px 28px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 30px;
-    background: white;
-    color: black;
-    cursor: pointer;
-}
-</style>
+    .text {
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      background: rgba(0,0,0,0.4);
+      padding: 20px 30px;
+      border-radius: 12px;
+    }
+  </style>
 </head>
-
 <body>
-<div class="overlay">
-    <h1>Mobina & Matin 🤍</h1>
-    <p>For the Rest of My Life</p>
-    <button onclick="playMusic()">▶ Play Our Song</button>
-</div>
 
-<audio id="music">
+  <div class="text">
+    Mobina & Matin 🤍<br>
+    For the rest of my life
+  </div>
+
+  <audio id="music">
     <source src="music.mp3" type="audio/mpeg">
-</audio>
+  </audio>
 
-<script>
-function playMusic() {
-    document.getElementById("music").play();
-}
-</script>
+  <script>
+    document.body.addEventListener('click', function () {
+      const music = document.getElementById('music');
+      music.play();
+    }, { once: true });
+  </script>
 
 </body>
 </html>
