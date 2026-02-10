@@ -2,111 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🤍 Mobina & Matin 🤍</title>
+  <title>Mobina & Matin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
       height: 100vh;
-      font-family: Arial, sans-serif;
-      position: relative;
-      overflow: hidden;
-      background: black;
-    }
-
-    /* background image only (flipped) */
-    body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
       background-image: url('Photo.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+
+      /* برعکس کردن عکس */
       transform: scaleX(-1);
-      z-index: -1;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: Arial, sans-serif;
     }
 
-    /* top text */
+    /* چون کل body برعکس شده، محتوا رو دوباره برمی‌گردونیم */
+    .content {
+      transform: scaleX(-1);
+    }
+
     .top-text {
-      position: absolute;
-      top: 25px;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-top: 30px;
       text-align: center;
       color: white;
+
+      font-size: 24px;          /* بلدتر */
+      font-weight: 700;         /* پررنگ‌تر */
+      letter-spacing: 0.5px;
+
       background: rgba(0,0,0,0.45);
-      padding: 18px 22px;
+      padding: 18px 24px;
       border-radius: 18px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6); /* شیک و واضح */
     }
 
-    .names {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    .quote {
-      font-size: 14px;
+    .subtitle {
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 6px;
       opacity: 0.9;
     }
 
-    /* play button */
-    .play-btn {
-      position: absolute;
-      bottom: 120px;
-      left: 50%;
-      transform: translateX(-50%);
+    .bottom {
+      margin-bottom: 30px;
+      text-align: center;
     }
 
     button {
       font-size: 16px;
-      padding: 12px 28px;
+      padding: 12px 26px;
       border: none;
       border-radius: 30px;
       background: white;
       color: black;
       cursor: pointer;
     }
-
-    /* audio player bottom */
-    audio {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      display: none;
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- Top Text -->
-  <div class="top-text">
-    <div class="names">🤍 Mobina & Matin 🤍</div>
-    <div class="quote">
-      For the rest of my life, I’ll be with you
-    </div>
+  <!-- متن بالا -->
+  <div class="content top-text">
+    🤍 Mobina & Matin 🤍
+    <div class="subtitle">For the rest of my life</div>
   </div>
 
-  <!-- Play Button -->
-  <div class="play-btn">
+  <!-- دکمه پایین -->
+  <div class="content bottom">
     <button onclick="playSong()">▶ Play our song</button>
   </div>
 
-  <!-- Audio Player -->
-  <audio id="song" controls>
+  <audio id="song">
     <source src="Music.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     function playSong() {
-      const song = document.getElementById("song");
-      song.style.display = "block";
-      song.play();
+      document.getElementById("song").play();
     }
   </script>
 
